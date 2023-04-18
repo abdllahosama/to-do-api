@@ -1,0 +1,5 @@
+ENV="dev"
+
+port="4000"
+
+dbLink="mongodb+srv://aallhosama:AIWjiRJ1ZaKWlmYN@cluster0.2xhwhtq.mongodb.net/?retryWrites=true&w=majority"

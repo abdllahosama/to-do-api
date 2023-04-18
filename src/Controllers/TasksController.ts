@@ -9,13 +9,13 @@ class TasksController {
      * @param response
      */
     public static index = async (
-        _request: Request,
+        request: Request,
         response: Response
     ): Promise<void> => {
         try {
             // get tasks from database
             const store = new taskStore()
-            const data = await store.index()
+            const data = await store.index(request.params.userId)
             response.status(200).json({ status: 'success', data: data })
         } catch (error) {
             throw new Error(`cant't get tasks: ${error}`)

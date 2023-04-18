@@ -5,7 +5,7 @@ import TasksController from '../Controllers/TasksController'
 const router = Router()
 
 // get tasks
-router.get('/', TasksController.index)
+router.get('/getByUser/:userId', TasksController.index)
 // add task
 router.post('/', TasksController.create)
 // show singel task

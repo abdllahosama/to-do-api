@@ -16,16 +16,19 @@ export class taskStore {
      * this method get tasks
      * @returns task[]
      */
-    public index = async (): Promise<task[]> => {
+    public index = async (userId: string): Promise<task[]> => {
         try {
             // connect to database
             const connection = await client.connect()
+
+            // init objectid
+            const userObjectId = new ObjectId(userId)
 
             // send query to database
             const tasks = (await connection
                 .db()
                 .collection('tasks')
-                .find({})
+                .find({user_id: userObjectId})
                 .toArray()) as task[]
 
             // return tasks

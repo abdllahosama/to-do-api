@@ -28,7 +28,7 @@ export class taskStore {
             const tasks = (await connection
                 .db()
                 .collection('tasks')
-                .find({user_id: userObjectId})
+                .find({ user_id: userObjectId })
                 .toArray()) as task[]
 
             // return tasks

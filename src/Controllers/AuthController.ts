@@ -44,7 +44,6 @@ class Auth {
         }
     }
 
-
     /**
      * this method register new user
      * @param request
@@ -58,9 +57,11 @@ class Auth {
             // init user model
             const store = new userStore()
             // create new user
-            const data = await store.insert(request.body)
+            await store.insert(request.body)
             // return success user
-            response.status(200).json({ status: 'success', message: 'user added successfully' })
+            response
+                .status(200)
+                .json({ status: 'success', message: 'user added successfully' })
         } catch (error) {
             throw new Error(`cant't create user: ${error}`)
         }

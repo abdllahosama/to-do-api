@@ -29,14 +29,13 @@ export class userStore {
             user.password = UserUtilities.hashPassword(user.password)
             // send query to database
             await connection.db().collection('users').insertOne(user)
-            
+
             // return true
             return true
         } catch (error) {
             throw new Error(`can't inser user: ${error}`)
         }
     }
-
 
     /**
      * this method auth user

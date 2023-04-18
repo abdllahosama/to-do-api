@@ -4,6 +4,25 @@ import { ObjectId } from 'mongodb'
 
 class TasksController {
     /**
+     * this method get all tasks
+     * @param request
+     * @param response
+     */
+    public static index = async (
+        _request: Request,
+        response: Response
+    ): Promise<void> => {
+        try {
+            // get tasks from database
+            const store = new taskStore()
+            const data = await store.index()
+            response.status(200).json({ status: 'success', data: data })
+        } catch (error) {
+            throw new Error(`cant't get tasks: ${error}`)
+        }
+    }
+
+    /**
      * this method create tasks
      * @param request
      * @param response

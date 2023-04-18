@@ -4,6 +4,8 @@ import TasksController from '../Controllers/TasksController'
 // configrate routes
 const router = Router()
 
+// get tasks
+router.get('/', TasksController.index)
 // add task
 router.post('/', TasksController.create)
 // show singel task

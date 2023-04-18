@@ -1,6 +1,11 @@
 import TasksController from '../../Controllers/TasksController'
 
 describe('Test tasks controller', (): void => {
+    // check index method
+    it('should have index method', (): void => {
+        expect(TasksController.index).toBeDefined()
+    })
+
     // check create method
     it('should have create method', (): void => {
         expect(TasksController.create).toBeDefined()

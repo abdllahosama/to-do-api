@@ -3,6 +3,11 @@ import { taskStore } from '../../Models/Tasks'
 const store = new taskStore()
 
 describe('Test task model', (): void => {
+    // check index method
+    it('should have index method', (): void => {
+        expect(store.index).toBeDefined()
+    })
+
     // check show method
     it('should show method', (): void => {
         expect(store.show).toBeDefined()

@@ -13,6 +13,32 @@ export type task = {
 // task class
 export class taskStore {
     /**
+     * this method get tasks
+     * @returns task[]
+     */
+    public index = async (): Promise<task[]> => {
+        try {
+            // connect to database
+            const connection = await client.connect()
+
+            // send query to database
+            const tasks = (await connection
+                .db()
+                .collection('tasks')
+                .find({})
+                .toArray()) as task[]
+
+            // return tasks
+            return tasks
+        } catch (error) {
+            throw new Error(`can't get tasks: ${error}`)
+        } finally {
+            // close database
+            await client.close()
+        }
+    }
+
+    /**
      * this method create new task
      * @returns boolean
      */

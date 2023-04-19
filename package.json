@@ -9,7 +9,8 @@
     "prettier": "npx prettier --write ./src/**/*",
     "jasmine": "npx jasmine",
     "build": "tsc ",
-    "test": "npm run build && npm run jasmine "
+    "test": "npm run build && npm run jasmine ",
+    "seed": "npm run build && node ./dist/seaders/taskSeader.js && node ./dist/seaders/userSeader.js"
   },
   "keywords": [
     "to-do",
